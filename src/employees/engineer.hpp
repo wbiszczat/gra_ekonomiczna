@@ -1,7 +1,6 @@
 #pragma once
 #include "employee.hpp"
 
-
 class Engineer : public Employee 
 {
 public:
@@ -10,5 +9,8 @@ public:
     void print() override;
 
     static constexpr float CI = 100.0f;
+
+private:
+    int payment = 6000;
 };
 

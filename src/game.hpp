@@ -1,5 +1,8 @@
 #pragma once
 
+#include <memory>
+#include "company.hpp"
+
 class Game
 {
 public:
@@ -10,7 +13,9 @@ public:
 private:
     int round;
     bool is_running;
+
+    std::unique_ptr<Company> company;
     
-    void announce_new_round();
+    bool announce_new_round();
     bool parse_user_input();
 };

@@ -2,6 +2,7 @@
 #include <string>
 
 class Employee {
+    
 public:
     Employee(std::string name);
 
@@ -11,4 +12,9 @@ public:
 
 private:
     std::string _name;
+
+protected:
+    int payment;
+
+   
 };

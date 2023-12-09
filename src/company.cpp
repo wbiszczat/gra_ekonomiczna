@@ -21,12 +21,14 @@ Company::~Company()
 
 void Company::list_employee()
 {
+    std::cout << "\n===========================================" << std::endl;
     std::cout << "Lista pracowników firmy:" << std::endl;
     for (int i = 0; i < number_of_employees; i++)
     {
         std::cout << i+1 << ": ";
         employees[i]->print();
     }
+    std::cout << "===========================================" << std::endl << std::endl;
     
 }
 
@@ -37,6 +39,7 @@ void Company::hire(std::unique_ptr<Employee>&& e)
 
 void Company::take_credit(double debt_size, int return_time_in_months)
 {
+    std::cout << "\n===========================================" << std::endl;
     float sum_of_debt = 0.0f;
     for (auto& c: credits)
     {
@@ -47,16 +50,21 @@ void Company::take_credit(double debt_size, int return_time_in_months)
     {
         std::cout << "Suma kredytów (" << sum_of_debt << " + " << debt_size <<
          ") przekroczyłaby dozwolony limit (" << Credit::max_debt << ")" << std::endl;
+         std::cout << "===========================================" << std::endl << std::endl;
         return;
     }
     credits.push_back(Credit(debt_size,return_time_in_months));
     money += debt_size;
     std::cout << "Uzyskano kredyt w wysokości " << debt_size << " PLN" << std::endl;
+    std::cout << "===========================================" << std::endl << std::endl;
 }
 
 void Company::calc()
 {
+    std::cout << "\n===========================================" << std::endl;
     std::cout << "Zamykam miesiąc" << std::endl;
+    std::cout << "===========================================" << std::endl;
+
 
     int number_of_enginners = 0;
     int number_of_marketers = 0;
@@ -153,6 +161,7 @@ void Company::calc()
 
     std::cout << "Gotówka w firmie: " << money << " PLN" << std::endl;
     std::cout << "Wartość firmy w ostatnich " << N << " miesiącach: " << average_company_value << " PLN" << std::endl;
+    std::cout << "===========================================" << std::endl << std::endl;
 }
 //Obliczanie wartości spółki. Jedna runda jest traktowana jako jeden miesiąc istnienia firmy.
 float Company::get_average_company_value(float company_value)

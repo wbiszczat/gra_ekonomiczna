@@ -8,9 +8,9 @@ public:
 
     void print() override;
 
-    static constexpr float CI = 100.0f;
+    static constexpr float CI = 200.0f;
 
 private:
-    int payment = 6000;
+    std::string alma_mater;
 };
 

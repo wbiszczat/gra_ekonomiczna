@@ -12,8 +12,6 @@ public:
     static constexpr float CMag = 100.0f;
 
 private:
-    int payment = 4500;
-
     bool udt;
 };
 

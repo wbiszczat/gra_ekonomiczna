@@ -5,6 +5,7 @@
 Warehouseman::Warehouseman(std::string name)
     :Employee(name)
 {
+  payment = 4000;
   udt = (rand() % 2 == 0);
 }
 

@@ -68,6 +68,28 @@ constexpr std::array last_names{
     "Hanneman",
 };
 
+constexpr std::array universities{
+    "Wydział Administracji i Nauk Społecznych",
+    "Wydział Architektury",
+    "Wydział Chemiczny",
+    "Wydział Elektroniki i Technik Informacyjnych",
+    "Wydział Elektryczny",
+    "Wydział Fizyki",
+    "Wydział Geodezji i Kartografii",
+    "Wydział Instalacji Budowlanych, Hydrotechniki i Inżynierii Środowiska",
+    "Wydział Inżynierii Chemicznej i Procesowej",
+    "Wydział Inżynierii Lądowej",
+    "Wydział Inżynierii Materiałowej",
+    "Wydział Matematyki i Nauk Informacyjnych",
+    "Wydział Mechaniczny Energetyki i Lotnictwa",
+    "Wydział Mechaniczny Technologiczny",
+    "Wydział Mechatroniki",
+    "Wydział Samochodów i Maszyn Roboczych",
+    "Wydział Transportu",
+    "Wydział Zarządzania",
+
+};
+
 std::string get_random_name(){
     std::uniform_int_distribution<std::size_t> fnd{0, first_names.size() - 1};
     std::uniform_int_distribution<std::size_t> lnd{0, last_names.size() - 1};
@@ -75,6 +97,13 @@ std::string get_random_name(){
     name << first_names[fnd(RandomIntGenerator::prng)] << ' ' <<
         last_names[lnd(RandomIntGenerator::prng)];
     return name.str();
+}
+
+std::string get_alma_mater(){
+    std::uniform_int_distribution<std::size_t> und{0, universities.size() - 1};
+    std::stringstream alma_mater;
+    alma_mater << universities[und(RandomIntGenerator::prng)];
+    return alma_mater.str();
 }
 
 #endif //P1_CPP_LAB_RANDOMNAMEGENERATOR_HPP

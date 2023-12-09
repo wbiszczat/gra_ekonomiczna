@@ -4,6 +4,7 @@
 Marketer::Marketer(std::string name)
     :Employee(name)
 {
+  payment = 5000;
   followers = generateFollowersNumber();
 }
 

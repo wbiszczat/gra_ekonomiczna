@@ -10,11 +10,12 @@ public:
 
     virtual void print();
 
-private:
-    std::string _name;
+    int get_payment() const { return payment; }
 
 protected:
     int payment;
 
-   
+private:
+    std::string _name;
+
 };

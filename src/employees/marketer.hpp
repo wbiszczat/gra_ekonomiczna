@@ -12,8 +12,6 @@ public:
     static constexpr float CMkt = 100.0f;
 
 private:
-    int payment = 8000;
-
     static int generateFollowersNumber() 
     {
         std::srand(static_cast<unsigned int>(std::time(nullptr)));

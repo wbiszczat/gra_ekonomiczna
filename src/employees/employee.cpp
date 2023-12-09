@@ -7,5 +7,5 @@ Employee::Employee(std::string name)
 
 void Employee::print() 
 {
-    std::cout << "Nazywam się " << _name << ". ";
+    std::cout << "Nazywam się " << _name << ". Zarabiam " << payment << " PLN. ";
 }

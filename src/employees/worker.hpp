@@ -9,10 +9,9 @@ public:
 
     void print() override;
 
-    static constexpr float CR = 100.0f;
+    static constexpr int CR = 100;
 
 private:
-    int payment = 4000;
     float shoeSize;
 };
 

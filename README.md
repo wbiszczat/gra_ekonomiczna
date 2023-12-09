@@ -27,13 +27,13 @@ Wynagrodzenie jest stałe dla wszystkich pracowników danego typu (np. wszyscy i
 Każdy typ pracownika posiada zdefiniowaną stałą wydajności, ustalaną w jednym miejscu w kodzie (zapewne jako stałe pole statyczne odpowiednich klas).
 Stałe wydajności oznaczmy (w kolejności zawodów wymienionej wyżej): `CI`, `CMag`, `CMkt`, `CR`.
 
-Dodatkowo, każdy z typów pracowników posiada dodatkową indywidualną cechę:
+<!-- Dodatkowo, każdy z typów pracowników posiada dodatkową indywidualną cechę:
 - Inż. - nazwa skończonego wydziału
 - Mag. - czy może obsługiwać wózek widłowy (tak lub nie)
 - Mkt. - liczba obserwujących na mediach społecznościowych (liczba całkowita)
-- Rob. - rozmiar buta (załóżmy, że jest to liczba zmiennoprzecinkowa)
+- Rob. - rozmiar buta (załóżmy, że jest to liczba zmiennoprzecinkowa) -->
 
-Gra powinna dać możliwość wyświetlenia listy zatrudnionych pracowników wraz z ich cechami (kolejność może być dowolna).
+<!-- Gra powinna dać możliwość wyświetlenia listy zatrudnionych pracowników wraz z ich cechami (kolejność może być dowolna).
 
 ### Pojemność magazynu
 Pojemność magazynu równa jest iloczynowi liczby magazynierów i stałej `CMag`.
@@ -42,20 +42,20 @@ Pojemność magazynu równa jest iloczynowi liczby magazynierów i stałej `CMag
 Cena produktu równa jest iloczynowi liczby inżynierów i stałej `CI`.
 
 ### Popyt
-Popyt na produkty równy jest iloczynowi liczby marketerów i stałej `CMkt`.
+Popyt na produkty równy jest iloczynowi liczby marketerów i stałej `CMkt`. -->
 
 ### Sprzedaż produktów
 Sprzedaż odbywa się wg. następującego schematu:
-1. Teoretycznie możliwa iczba wyprodukowanych w danym miesiącu produktów równa jest iloczynowi liczby robotników i stałej `CR`.
-2. Liczba faktycznie wyprodukowanych w danym miesiącu produktów równa jest mniejszej z wartości: pojemność magazynu, teoretycznie możliwa liczba wyprodukowanych produktów.
-3. Liczba sprzedanych w danym miesiącu produktów równa jest mniejszej z wartości: popyt, liczba faktycznie wyprodukowanych produktów.
-4. Przychód firmy równy jest iloczynowi liczby sprzedanych produktów i ceny produktu.
+<!-- 1. Teoretycznie możliwa iczba wyprodukowanych w danym miesiącu produktów równa jest iloczynowi liczby robotników i stałej `CR`. -->
+<!-- 2. Liczba faktycznie wyprodukowanych w danym miesiącu produktów równa jest mniejszej z wartości: pojemność magazynu, teoretycznie możliwa liczba wyprodukowanych produktów. -->
+<!-- 3. Liczba sprzedanych w danym miesiącu produktów równa jest mniejszej z wartości: popyt, liczba faktycznie wyprodukowanych produktów. -->
+<!-- 4. Przychód firmy równy jest iloczynowi liczby sprzedanych produktów i ceny produktu. -->
 
 Do powyższego schematu może (ale nie musi) zostać wprowadzony czynnik losowy.
 Wykonujący projekt może także (ale nie musi) zaimplementować magazyn w taki sposób, że niesprzedane w danym miesiącu produkty pozostają na stanie w miesiącu kolejnym.
 
 ### Wartość spółki
-Wartość spółki definiujemy jako średni przychód firmy z ostatnich `N` miesięcy, gdzie `N` to stała zdefiniowana w programie.
+<!-- Wartość spółki definiujemy jako średni przychód firmy z ostatnich `N` miesięcy, gdzie `N` to stała zdefiniowana w programie. -->
 
 ### Kredyty
 Gracz może w każdej turze zaciągnąć kredyt, który musi później spłacić.

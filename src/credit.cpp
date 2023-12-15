@@ -1,5 +1,5 @@
 #include "credit.hpp"
-
+#include <iostream>
 Credit::Credit(float credit_value, int number_of_months)
     : left_months{number_of_months}
       
@@ -20,4 +20,10 @@ float Credit::payDebt()
 float Credit::getLeftDebtValue()
 {
     return rata * left_months;
+}
+
+void Credit::print()
+{
+    std::cout << "Kredyt. Rata wynosi " 
+        << rata << " PLN. Pozostało do spłacenia: " << left_months << " miesięcy." << std::endl; 
 }

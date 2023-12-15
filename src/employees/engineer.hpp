@@ -4,7 +4,7 @@
 class Engineer : public Employee 
 {
 public:
-    Engineer(std::string name);
+    Engineer(std::string name, std::string alma_mater);
 
     void print() override;
 

@@ -1,9 +1,8 @@
 #include "engineer.hpp"
 #include <iostream>
-#include "../RandomNameGenerator.hpp"
 
-Engineer::Engineer(std::string name)
-    :Employee(name), alma_mater{get_alma_mater()}
+Engineer::Engineer(std::string name, std::string alma_mater)
+    :Employee(name), alma_mater{alma_mater}
 {
   payment = 6000;
 }

@@ -12,7 +12,7 @@ Warehouseman::Warehouseman(std::string name)
 void Warehouseman::print() 
 {
   Employee::print();
-  std::cout << "Jestem magazynierem." << std::endl;
+  std::cout << "Jestem magazynierem.";
   std::cout << "Czy mam pozwolenie na wózek widłowy? " << (udt ? "Tak" : "Nie") << std::endl;
 
 }

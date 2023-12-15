@@ -56,13 +56,13 @@ Wykonujący projekt może także (ale nie musi) zaimplementować magazyn w taki 
 
 ### Wartość spółki
 <!-- Wartość spółki definiujemy jako średni przychód firmy z ostatnich `N` miesięcy, gdzie `N` to stała zdefiniowana w programie. -->
-
+<!-- 
 ### Kredyty
 Gracz może w każdej turze zaciągnąć kredyt, który musi później spłacić.
 Biorąc kredyt gracz ustala jego kwotę oraz czas spłaty.
 Odsetki ustalane są wg. zasady: im dłuższy czas spłaty, tym wyższe odsetki (szczegóły pozostawiamy wykonującemu projekt).
 Czas spłaty powinien mieć górny limit (nie można zaciągnąć kredytu na dłużej niż `X`).
-Dodatkowo, całkowite zadłużenie nie może przekroczyć wartości `M` razy wartość spółki, gdzie `M` to stała zdefiniowana w programie.
+Dodatkowo, całkowite zadłużenie nie może przekroczyć wartości `M` razy wartość spółki, gdzie `M` to stała zdefiniowana w programie. -->
 
 ### Dochód
 W każdym miesiącu stan konta gracza zwiększany (lub zmniejszany) jest o kwotę dochodu, liczoną wg. wzoru:

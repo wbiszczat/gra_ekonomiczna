@@ -8,7 +8,7 @@ Company::Company():
     {
         employees[i] = nullptr;
     }
-    
+    std::cout << "Zaczynasz z " << money << " PLN. Good luck!" << std::endl;
 }
 
 Company::~Company()
@@ -32,14 +32,39 @@ void Company::list_employee()
     
 }
 
+void Company::list_credits()
+{
+    std::cout << "\n===========================================" << std::endl;
+    std::cout << "Lista zaciągniętych kredytów:" << std::endl;
+    for (int i = 0; i < static_cast<int>(credits.size()); i++)
+    {
+        std::cout << i+1 << ": ";
+        credits.at(i).print();
+    }
+    std::cout << "===========================================" << std::endl << std::endl; 
+}
+
 void Company::hire(std::unique_ptr<Employee>&& e)
 {
     employees[number_of_employees++] = e.release();
 }
 
-void Company::take_credit(double debt_size, int return_time_in_months)
+void Company::take_credit(float debt_size, int return_time_in_months)
 {
     std::cout << "\n===========================================" << std::endl;
+    if(debt_size < 0.0f)
+    {
+        std::cout << "Wartość kredytu nie może być ujemna" << std::endl;
+        std::cout << "===========================================" << std::endl << std::endl;
+        return;
+    }
+    if(return_time_in_months <= 0)
+    {
+        std::cout << "Czas spłaty musi byc dodatni" << std::endl;
+        std::cout << "===========================================" << std::endl << std::endl;
+        return;
+    }
+
     float sum_of_debt = 0.0f;
     for (auto& c: credits)
     {
@@ -50,7 +75,7 @@ void Company::take_credit(double debt_size, int return_time_in_months)
     {
         std::cout << "Suma kredytów (" << sum_of_debt << " + " << debt_size <<
          ") przekroczyłaby dozwolony limit (" << Credit::max_debt << ")" << std::endl;
-         std::cout << "===========================================" << std::endl << std::endl;
+        std::cout << "===========================================" << std::endl << std::endl;
         return;
     }
     credits.push_back(Credit(debt_size,return_time_in_months));
@@ -59,7 +84,7 @@ void Company::take_credit(double debt_size, int return_time_in_months)
     std::cout << "===========================================" << std::endl << std::endl;
 }
 
-void Company::calc()
+bool Company::calc()
 {
     std::cout << "\n===========================================" << std::endl;
     std::cout << "Zamykam miesiąc" << std::endl;
@@ -147,6 +172,7 @@ void Company::calc()
     {
         sum_of_credits += c.payDebt();
     }
+    // Usuwanie zakończonych kredytów.
     credits.erase(std::remove_if(credits.begin(), 
                                  credits.end(),
                                  [](Credit& c) { return c.isFinish(); }),
@@ -157,11 +183,33 @@ void Company::calc()
 
     money += Income;
 
+    if (money < 0.0f)
+    {
+        std::cout << "BANKRUT || KONIEC GRY" << std::endl;
+        return true;
+    }
+    
     float average_company_value = get_average_company_value(money);
+
+    if (average_company_value >= WIN_CRITERIUM)
+    {
+        if (credits.empty())
+        {
+            std::cout << "WYGRANA || KONIEC GRY" << std::endl;
+            return true;
+        }
+        else 
+        {
+            std::cout << "Uzyskano próg pieniężny wygranej. MASZ NIE SPŁACONEGO KREDYT . Grasz dalej." << std::endl;
+        }
+        
+    }
+    
 
     std::cout << "Gotówka w firmie: " << money << " PLN" << std::endl;
     std::cout << "Wartość firmy w ostatnich " << N << " miesiącach: " << average_company_value << " PLN" << std::endl;
     std::cout << "===========================================" << std::endl << std::endl;
+    return false;
 }
 //Obliczanie wartości spółki. Jedna runda jest traktowana jako jeden miesiąc istnienia firmy.
 float Company::get_average_company_value(float company_value)

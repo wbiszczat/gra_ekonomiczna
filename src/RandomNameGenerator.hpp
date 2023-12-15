@@ -1,9 +1,9 @@
 //
 // Created by jgalecki on 13.11.2020.
+// Modified by wbiszczat on 15.12.2023.
 //
 
-#ifndef P1_CPP_LAB_RANDOMNAMEGENERATOR_HPP
-#define P1_CPP_LAB_RANDOMNAMEGENERATOR_HPP
+#pragma once
 
 #include <array>
 #include <random>
@@ -105,5 +105,3 @@ std::string get_alma_mater(){
     alma_mater << universities[und(RandomIntGenerator::prng)];
     return alma_mater.str();
 }
-
-#endif //P1_CPP_LAB_RANDOMNAMEGENERATOR_HPP

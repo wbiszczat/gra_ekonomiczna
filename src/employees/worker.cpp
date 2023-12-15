@@ -9,5 +9,5 @@ Worker::Worker(std::string name, float shoe_size)
 
 void Worker::print() {
   Employee::print();
-  std::cout << "Jestem robotnikiem." << std::endl;
+  std::cout << "Jestem robotnikiem. Mój rozmiar buta to " << shoeSize << std::endl;
 }

@@ -11,6 +11,8 @@ public:
 
     bool isFinish() {return left_months <= 0;}
 
+    void print();
+
     static constexpr float RRSO = 0.2;
 
     static constexpr float max_debt = 30000;

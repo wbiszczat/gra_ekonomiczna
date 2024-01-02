@@ -1,29 +1,21 @@
 #include "company.hpp"
 #include <iostream>
 
-Company::Company():
-    number_of_employees{0}, employees{new Employee*[MAX_EMPLOYEES]}
+Company::Company()
 {
-    for (int i = 0; i < MAX_EMPLOYEES; i++)
-    {
-        employees[i] = nullptr;
-    }
     std::cout << "Zaczynasz z " << money << " PLN. Good luck!" << std::endl;
 }
 
 Company::~Company()
 {
-    for (int i = 0; i < number_of_employees; i++)
-    {
-        delete employees[i];
-    }
+    ;
 }
 
 void Company::list_employee()
 {
     std::cout << "\n===========================================" << std::endl;
     std::cout << "Lista pracowników firmy:" << std::endl;
-    for (int i = 0; i < number_of_employees; i++)
+    for (int i = 0; i < static_cast<int>(employees.size()); i++)
     {
         std::cout << i+1 << ": ";
         employees[i]->print();
@@ -46,7 +38,7 @@ void Company::list_credits()
 
 void Company::hire(std::unique_ptr<Employee>&& e)
 {
-    employees[number_of_employees++] = e.release();
+    employees.push_back(std::move(e));
 }
 
 void Company::take_credit(float debt_size, int return_time_in_months)
@@ -96,24 +88,24 @@ bool Company::calc()
     int number_of_warehousemans = 0;
     int number_of_workers = 0;
 
-    for (int i = 0; i < number_of_employees; i++)
+    for (auto& employee: employees)
     {
-        if(dynamic_cast<Engineer*>(employees[i]) != nullptr)
+        if(dynamic_cast<Engineer*>(employee.get()) != nullptr)
         {
             number_of_enginners++;
             continue;
         }
-        if(dynamic_cast<Marketer*>(employees[i]) != nullptr)
+        if(dynamic_cast<Marketer*>(employee.get()) != nullptr)
         {
             number_of_marketers++;
             continue;
         }
-        if(dynamic_cast<Warehouseman*>(employees[i]) != nullptr)
+        if(dynamic_cast<Warehouseman*>(employee.get()) != nullptr)
         {
             number_of_warehousemans++;
             continue;
         }
-        if(dynamic_cast<Worker*>(employees[i]) != nullptr)
+        if(dynamic_cast<Worker*>(employee.get()) != nullptr)
         {
             number_of_workers++;
             continue;
@@ -162,9 +154,9 @@ bool Company::calc()
     //Payouts = wyplaty
     float Payouts = 0.0f;
 
-    for (int i = 0; i < number_of_employees; i++)
+    for (auto employee_itr = employees.begin(); employee_itr != employees.end(); employee_itr++)
     {
-        Payouts += employees[i]->get_payment();
+        Payouts += (*employee_itr)->get_payment();
     }
 
     float sum_of_credits = 0.0;

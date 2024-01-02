@@ -39,8 +39,7 @@ public:
 
 
 private:
-    int number_of_employees;
-    std::unique_ptr<Employee*[]> employees;
+    std::vector<std::unique_ptr<Employee>> employees;
 
     std::vector<Credit> credits;
 
